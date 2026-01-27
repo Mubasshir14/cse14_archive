@@ -179,11 +179,9 @@ const App = () => {
       </section>
 
       {/* Timeline Section */}
-      <section id="timeline" className="py-20 px-4 relative">
+      <section id="timeline" className="px-4 relative">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
-            <span className="border-b-4 border-rose-500 pb-2">Our Journey</span>
-          </h2>
+    
           <Timeline />
         </div>
       </section>
