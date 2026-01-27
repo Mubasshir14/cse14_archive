@@ -20,7 +20,7 @@ const WelcomeAnimation = ({ onComplete }: { onComplete: () => void }) => {
     };
   }, [onComplete]);
 
-  const startDate = new Date("2023-01-29T00:00:00");
+  const startDate = new Date("2023-01-29T09:00:00");
 
   const calculateDuration = () => {
     const now = new Date();
@@ -48,7 +48,7 @@ const WelcomeAnimation = ({ onComplete }: { onComplete: () => void }) => {
       const prevMonth = new Date(
         now.getFullYear(),
         now.getMonth(),
-        0
+        0,
       ).getDate();
       days += prevMonth;
       months--;
@@ -71,7 +71,16 @@ const WelcomeAnimation = ({ onComplete }: { onComplete: () => void }) => {
   }, []);
 
   return (
-    <div className="fixed inset-0 z-[9999] bg-gradient-to-br from-slate-950 via-slate-900 to-rose-950 flex items-center justify-center overflow-hidden px-4">
+    <div
+      className="fixed inset-0 z-[9999] bg-gradient-to-br from-slate-950 via-slate-900 to-rose-950 flex items-center justify-center overflow-hidden px-4"
+      style={{ fontFamily: "'Arima', cursive" }}
+    >
+      <style>
+        {`
+          @import url('https://fonts.googleapis.com/css2?family=Arima:wght@100..700&display=swap');
+        `}
+      </style>
+
       {/* Background dots */}
       <div className="absolute inset-0 overflow-hidden">
         {[...Array(25)].map((_, i) => (
@@ -110,8 +119,14 @@ const WelcomeAnimation = ({ onComplete }: { onComplete: () => void }) => {
               <GraduationCap size={40} className="text-white animate-wiggle" />
             </div>
 
-            <Sparkles className="absolute -top-2 -right-2 text-yellow-400 animate-spin-slow" size={18} />
-            <Sparkles className="absolute -bottom-2 -left-2 text-yellow-400 animate-spin-slow" size={14} />
+            <Sparkles
+              className="absolute -top-2 -right-2 text-yellow-400 animate-spin-slow"
+              size={18}
+            />
+            <Sparkles
+              className="absolute -bottom-2 -left-2 text-yellow-400 animate-spin-slow"
+              size={14}
+            />
           </div>
         </div>
 

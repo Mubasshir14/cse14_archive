@@ -1,17 +1,24 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-"use client"
-import React, { useState, useEffect } from 'react';
-import { 
-  Calendar, Clock, Heart, GraduationCap, 
-  ChevronDown, Star, Users, Menu, X 
-} from 'lucide-react';
-import WelcomeAnimation from './Welcomeanimation';
-import Timeline from './Timeline';
-import { memories } from './memoriesData';
-
+"use client";
+import React, { useState, useEffect } from "react";
+import {
+  Calendar,
+  Clock,
+  Heart,
+  GraduationCap,
+  ChevronDown,
+  Star,
+  Users,
+  Menu,
+  X,
+} from "lucide-react";
+import WelcomeAnimation from "./Welcomeanimation";
+import Timeline from "./Timeline";
+import { memories } from "./memoriesData";
 
 const App = () => {
   const [activeTab, setActiveTab] = useState("all");
@@ -19,8 +26,8 @@ const App = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [showWelcome, setShowWelcome] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [selectedMemory, setSelectedMemory] = useState<any>(null);
 
- 
   const startDate = new Date("2023-01-29");
   const intakeDay = new Date("2026-01-29");
 
@@ -76,14 +83,34 @@ const App = () => {
                 CSE 14th
               </span>
             </div>
-            
+
             {/* Desktop Menu */}
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-8">
-                <a href="#home" className="hover:text-rose-400 transition-colors">Home</a>
-                <a href="#timeline" className="hover:text-rose-400 transition-colors">Timeline</a>
-                <a href="#archive" className="hover:text-rose-400 transition-colors">Archive</a>
-                <a href="#messages" className="hover:text-rose-400 transition-colors">Messages</a>
+                <a
+                  href="#home"
+                  className="hover:text-rose-400 transition-colors"
+                >
+                  Home
+                </a>
+                <a
+                  href="#timeline"
+                  className="hover:text-rose-400 transition-colors"
+                >
+                  Timeline
+                </a>
+                <a
+                  href="#archive"
+                  className="hover:text-rose-400 transition-colors"
+                >
+                  Archive
+                </a>
+                <a
+                  href="#messages"
+                  className="hover:text-rose-400 transition-colors"
+                >
+                  Messages
+                </a>
               </div>
             </div>
 
@@ -103,10 +130,34 @@ const App = () => {
         {isMobileMenuOpen && (
           <div className="md:hidden bg-slate-900 border-t border-slate-800 animate-fade-in-down">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              <a href="#home" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-2 rounded-md text-base font-medium hover:bg-slate-800 hover:text-rose-400">Home</a>
-              <a href="#timeline" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-2 rounded-md text-base font-medium hover:bg-slate-800 hover:text-rose-400">Timeline</a>
-              <a href="#archive" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-2 rounded-md text-base font-medium hover:bg-slate-800 hover:text-rose-400">Archive</a>
-              <a href="#messages" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-2 rounded-md text-base font-medium hover:bg-slate-800 hover:text-rose-400">Messages</a>
+              <a
+                href="#home"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="block px-3 py-2 rounded-md text-base font-medium hover:bg-slate-800 hover:text-rose-400"
+              >
+                Home
+              </a>
+              <a
+                href="#timeline"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="block px-3 py-2 rounded-md text-base font-medium hover:bg-slate-800 hover:text-rose-400"
+              >
+                Timeline
+              </a>
+              <a
+                href="#archive"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="block px-3 py-2 rounded-md text-base font-medium hover:bg-slate-800 hover:text-rose-400"
+              >
+                Archive
+              </a>
+              <a
+                href="#messages"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="block px-3 py-2 rounded-md text-base font-medium hover:bg-slate-800 hover:text-rose-400"
+              >
+                Messages
+              </a>
             </div>
           </div>
         )}
@@ -181,16 +232,15 @@ const App = () => {
       {/* Timeline Section */}
       <section id="timeline" className="px-4 relative">
         <div className="max-w-4xl mx-auto">
-    
           <Timeline />
         </div>
       </section>
 
       {/* Archive Grid Section */}
-      <section id="archive" className="py-20 px-4 bg-slate-800/30">
+      <section id="archive" className="py-20 px-4 ">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">
+            <h2 className="text-3xl md:text-5xl bg-clip-text text-transparent bg-gradient-to-r from-rose-400 via-orange-300 to-purple-400 animate-gradient font-bold mb-4">
               Memory Archive
             </h2>
             <p className="text-slate-400">
@@ -221,6 +271,7 @@ const App = () => {
             {filteredMemories.map((memory) => (
               <div
                 key={memory.id}
+                onClick={() => setSelectedMemory(memory)}
                 className="group relative bg-slate-800 rounded-2xl overflow-hidden shadow-xl border border-slate-700 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2"
               >
                 <div className="aspect-[4/3] overflow-hidden">
@@ -247,6 +298,47 @@ const App = () => {
               </div>
             ))}
           </div>
+          {selectedMemory && (
+            <div
+              className="fixed inset-0 z-[9999] bg-black/80 backdrop-blur-sm flex items-center justify-center px-4"
+              onClick={() => setSelectedMemory(null)}
+            >
+              <div
+                className="relative max-w-5xl w-full bg-slate-900 rounded-2xl overflow-hidden shadow-2xl animate-fade-in"
+                onClick={(e) => e.stopPropagation()}
+              >
+                {/* Close Button */}
+                <button
+                  onClick={() => setSelectedMemory(null)}
+                  className="absolute top-4 right-4 z-10 bg-slate-800/80 hover:bg-slate-700 text-white rounded-full w-10 h-10 flex items-center justify-center transition"
+                >
+                  ✕
+                </button>
+
+                {/* Image */}
+                <div className="w-full max-h-[70vh] overflow-hidden bg-black">
+                  <img
+                    src={selectedMemory.src}
+                    alt={selectedMemory.title}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+
+                {/* Content */}
+                <div className="p-6 text-center">
+                  <span className="inline-block mb-2 px-3 py-1 text-xs uppercase tracking-wide bg-rose-500/20 text-rose-400 rounded-full">
+                    {selectedMemory.type.replace(/_/g, " ")}
+                  </span>
+                  <h2 className="text-2xl font-bold text-white mb-2">
+                    {selectedMemory.title}
+                  </h2>
+                  <p className="text-slate-400 max-w-2xl mx-auto">
+                    {selectedMemory.desc}
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </section>
 
@@ -288,13 +380,14 @@ const App = () => {
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-rose-400 to-orange-500"></div>
                 <div>
-                  <h4 className="font-bold">A Proud Batchmate</h4>
+                  <h4 className="font-bold">A Member of CSE 14th</h4>
                   <p className="text-xs text-slate-500">CSE 14th Intake</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
+        
       </section>
 
       {/* Footer */}
@@ -306,7 +399,9 @@ const App = () => {
           © 2026 BRUR CSE 14th Intake · Memories go to infinity
         </p>
       </footer>
+      
     </div>
+    
   );
 };
 

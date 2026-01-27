@@ -8,7 +8,7 @@ const Timeline = () => {
       <div className="max-w-6xl mx-auto">
         {/* Section Title */}
         <div className="text-center mb-12 md:mb-20">
-          <h2 className="text-3xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-rose-400 via-purple-400 to-blue-400 mb-2 md:mb-4">
+          <h2 className="text-3xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-rose-400 via-orange-300 to-purple-400 animate-gradient mb-2 md:mb-4">
             Our Journey Together
           </h2>
           <p className="text-slate-400 text-base md:text-lg">
