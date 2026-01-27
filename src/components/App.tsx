@@ -19,6 +19,7 @@ import {
 import WelcomeAnimation from "./Welcomeanimation";
 import Timeline from "./Timeline";
 import { memories } from "./memoriesData";
+import PhotoCardGenerator from "./PhotoCardGenerator";
 
 const App = () => {
   const [activeTab, setActiveTab] = useState("all");
@@ -316,7 +317,7 @@ const App = () => {
                 </button>
 
                 {/* Image */}
-                <div className="w-full max-h-[70vh] overflow-hidden bg-black">
+                <div className="w-full max-h-[80vh]">
                   <img
                     src={selectedMemory.src}
                     alt={selectedMemory.title}
@@ -326,15 +327,9 @@ const App = () => {
 
                 {/* Content */}
                 <div className="p-6 text-center">
-                  <span className="inline-block mb-2 px-3 py-1 text-xs uppercase tracking-wide bg-rose-500/20 text-rose-400 rounded-full">
-                    {selectedMemory.type.replace(/_/g, " ")}
-                  </span>
-                  <h2 className="text-2xl font-bold text-white mb-2">
+                  <h2 className="text-2xl font-bold text-white mb-2 bg-black/10 inline-block">
                     {selectedMemory.title}
                   </h2>
-                  <p className="text-slate-400 max-w-2xl mx-auto">
-                    {selectedMemory.desc}
-                  </p>
                 </div>
               </div>
             </div>
@@ -389,6 +384,8 @@ const App = () => {
         </div>
         
       </section>
+
+<PhotoCardGenerator />
 
       {/* Footer */}
       <footer className="bg-slate-900 py-12 border-t border-slate-800 text-center">

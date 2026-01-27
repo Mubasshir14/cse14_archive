@@ -39,3 +39,14 @@ body {
 .animate-fade-in {
   animation: fade-in 0.25s ease-out;
 }
+
+/* html2canvas compatibility fix */
+.html2canvas-safe * {
+  backdrop-filter: none !important;
+  filter: none !important;
+  box-shadow: none !important;
+}
+
+.html2canvas-safe {
+  background: #020617 !important;
+}
