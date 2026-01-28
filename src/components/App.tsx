@@ -15,6 +15,7 @@ import {
   Users,
   Menu,
   X,
+  Infinity,
 } from "lucide-react";
 import WelcomeAnimation from "./Welcomeanimation";
 import Timeline from "./Timeline";
@@ -338,10 +339,32 @@ const App = () => {
       </section>
 
       {/* Messages/Credits Section */}
-      <section id="messages" className="py-20 px-4">
+      <section id="messages" className="lg:py-20 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <Heart className="w-12 h-12 text-rose-500 mx-auto mb-6 animate-pulse" />
-          <h2 className="text-3xl font-bold mb-8">
+          {/* <Heart className="w-12 h-12 text-rose-500 mx-auto mb-6 animate-pulse" /> */}
+          <div className="relative flex flex-col items-center text-center px-4">
+            {/* Glowing Orb Background */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-48 h-48 md:w-64 md:h-64 bg-gradient-to-r from-rose-500/20 via-purple-500/20 to-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
+            </div>
+
+            {/* Infinity Symbol Container */}
+            <div className="relative">
+              <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-gradient-to-br from-rose-600 to-purple-600 flex items-center justify-center z-20 shadow-2xl shadow-rose-500/50 animate-pulse border-4 border-white/20">
+                <Infinity
+                  className="w-10 h-10 md:w-12 md:h-12 text-white"
+                  strokeWidth={2.5}
+                />
+              </div>
+
+              {/* Rotating Ring */}
+              <div
+                className="absolute inset-0 border-4 border-transparent border-t-rose-400 border-r-purple-400 rounded-full animate-spin"
+                style={{ animationDuration: "3s" }}
+              ></div>
+            </div>
+          </div>
+          <h2 className="text-3xl font-bold mt-3 mb-8 bg-clip-text text-transparent bg-gradient-to-r from-rose-400 via-orange-300 to-purple-400 animate-gradient">
             From 14th Intake to Infinity
           </h2>
 
@@ -382,10 +405,9 @@ const App = () => {
             </div>
           </div>
         </div>
-        
       </section>
 
-<PhotoCardGenerator />
+      <PhotoCardGenerator />
 
       {/* Footer */}
       <footer className="bg-slate-900 py-12 border-t border-slate-800 text-center">
@@ -395,10 +417,32 @@ const App = () => {
         <p className="text-slate-600 text-xs mt-2">
           © 2026 BRUR CSE 14th Intake · Memories go to infinity
         </p>
+        <div className="relative mt-2 flex flex-col items-center text-center px-4">
+          {/* Glowing Orb Background */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="w bg-gradient-to-r from-rose-500/20 via-purple-500/20 to-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
+          </div>
+
+          {/* Infinity Symbol Container */}
+          <div className="relative">
+            <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-gradient-to-br from-rose-600 to-purple-600 flex items-center justify-center z-20 shadow-2xl shadow-rose-500/50 animate-pulse border-4 border-white/20">
+              <Infinity
+                className="w-10 h-10 md:w-12 md:h-12 text-white"
+                strokeWidth={2.5}
+              />
+            </div>
+
+            {/* Rotating Ring */}
+            <div
+              className="absolute inset-0 border-4 border-transparent border-t-rose-400 border-r-purple-400 rounded-full animate-spin"
+              style={{ animationDuration: "3s" }}
+            ></div>
+          </div>
+
+          
+        </div>
       </footer>
-      
     </div>
-    
   );
 };
 

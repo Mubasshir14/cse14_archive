@@ -10,7 +10,7 @@ const PhotoCardGenerator = () => {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [backgroundLoaded, setBackgroundLoaded] = useState(false);
   const [name, setName] = useState("Your Name");
-  const [studentId, setStudentId] = useState("2023XXXXXXX");
+  const [studentId, setStudentId] = useState("121050XX");
 
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -61,7 +61,7 @@ const PhotoCardGenerator = () => {
   };
 
   return (
-    <section className="py-20 px-4 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white min-h-screen">
+    <section className="py-20 px-4  text-white min-h-screen">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
@@ -71,7 +71,7 @@ const PhotoCardGenerator = () => {
               Create Your Memory
             </span>
           </div>
-          <h1 className="text-xl md:text-5xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-rose-400 via-purple-400 to-blue-400">
+          <h1 className="text-xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-rose-400 via-orange-300 to-purple-400 animate-gradient">
             CSE 14th Intake Photocard
           </h1>
           <p className="text-slate-400 text-lg max-w-2xl mx-auto">
@@ -295,6 +295,7 @@ const PhotoCardGenerator = () => {
                   #BRURMemories
                 </span>
               </p>
+              
             </div>
           </div>
         </div>

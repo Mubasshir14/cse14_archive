@@ -47,7 +47,7 @@ const Timeline = () => {
                       className={`relative bg-gradient-to-br ${item.gradientFrom} ${item.gradientTo} p-6 rounded-2xl shadow-xl transition-all duration-500 hover:scale-105 hover:shadow-2xl ${item.shadowColor} border border-white/10 backdrop-blur-sm`}
                     >
                       {/* Decorative Corner */}
-                      <div className={`absolute ${isLeft ? 'top-0 left-0' : 'top-0 right-0'} w-16 h-16 opacity-20`}>
+                      <div className={`absolute ${isLeft ? 'top-0 left-0' : 'top-0 right-0 rotate-90'} w-16 h-16 opacity-20`}>
                         <div className={`absolute ${isLeft ? 'top-2 left-2' : 'top-2 right-2'} w-12 h-12 border-t-2 border-l-2 ${item.borderColor} rounded-tl-xl`}></div>
                       </div>
 

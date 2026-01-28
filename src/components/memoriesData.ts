@@ -3,7 +3,7 @@ export const memories = [
     id: 1,
     type: "first-year",
     src: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&q=80",
-    title: "First Day on Campus, 29 Jan 2023",
+    title: "First Day on Campus (Orientation), 29 Jan 2023",
     desc: "The beginning of our university journey—unfamiliar faces, new dreams and endless possibilities.",
   },
   {
@@ -166,6 +166,34 @@ export const memories = [
     src: "https://i.ibb.co.com/svWdjLZt/482225450-1650533179158290-1929707083726560483-n.jpg",
     title: "Batch Picnic Moments",
     desc: "A simple yet memorable picnic where laughter, friendship, and togetherness defined the day.",
+  },
+  {
+    id: 27,
+    type: "batch_picnic",
+    src: "https://i.ibb.co.com/ZzqTpGS2/photo-2026-01-28-16-45-15.jpg",
+    title: "Tuhin er Gaye Holud",
+    desc: "Celebrating Tuhin's Gaye Holud with joy, colors and the warmth of friendship and the worst thing that happened that day was rain. But after all it was a memorable day.",
+  },
+  {
+    id: 28,
+    type: "batch_picnic",
+    src: "https://i.ibb.co.com/wrK0yzDy/photo-2026-01-28-16-45-09.jpg",
+    title: "Tuhin er Gaye Holud",
+    desc: "Celebrating Tuhin's Gaye Holud with joy, colors and the warmth of friendship and the worst thing that happened that day was rain. But after all it was a memorable day.",
+  },
+  {
+    id: 29,
+    type: "batch_picnic",
+    src: "https://i.ibb.co.com/XZ1gs5Wb/photo-2026-01-28-16-45-05.jpg",
+    title: "After 1st year 2nd Semester Viav Voce",
+    desc: "A small gathering after the viva voce exam to relax and enjoy each other's company.",
+  },
+  {
+    id: 30,
+    type: "sports",
+    src: "https://i.ibb.co.com/MDCNPcw0/photo-2026-01-28-17-01-48.jpg",
+    title: "Team Bipul VS Team Fayshal",
+    desc: "It was our futsal tournament among the batchmates. Team Faysal won the match. And tournament champion was Team Provash.",
   },
   {
     id: 8,
