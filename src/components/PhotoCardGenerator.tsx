@@ -37,10 +37,23 @@ const PhotoCardGenerator = () => {
         skipFonts: false,
       });
 
-      const link = document.createElement("a");
-      link.download = "CSE-14th-Intake-Photocard.png";
-      link.href = dataUrl;
-      link.click();
+      if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+        const newWindow = window.open();
+        if (newWindow) {
+          newWindow.document
+            .write(`<img src="${dataUrl}" style="width:100%;height:auto;display:block; background:transparent" /> 
+                <p style="text-align:center;font-family:sans-serif">
+      Long press to save image. For best results, use a browser like Chrome in Desktop mode. Best option is to use a PC or Mac to download.
+    </p>`);
+          newWindow.document.title =
+            "Long press to save image. For best results, use a browser like Chrome in Desktop mode. Best option is to use a PC or Mac to download.";
+        }
+      } else {
+        const link = document.createElement("a");
+        link.download = "CSE-14th-Intake-Photocard.png";
+        link.href = dataUrl;
+        link.click();
+      }
     } catch (e) {
       console.error("Image export failed", e);
       alert("Failed to export image. Please try again.");
@@ -151,8 +164,8 @@ const PhotoCardGenerator = () => {
 
                     {/* Name Placeholder */}
 
-                    <div className="text-center pt-4">
-                      <h3 className="text-xl font-bold mb-1 text-white drop-shadow-lg">
+                    <div className="text-center pt-6 md:pt-4">
+                      <h3 className="text-lg font-bold mb-1 text-white drop-shadow-lg">
                         {name}
                       </h3>
                       <p className="text-sm text-rose-300 font-medium">
