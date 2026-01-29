@@ -154,7 +154,6 @@ const WelcomeAnimation = ({ onComplete }: { onComplete: () => void }) => {
 
         <div className="flex flex-wrap items-center justify-center gap-2 text-base sm:text-xl text-rose-300">
           <span>with</span>
-          <Heart className="text-rose-500 animate-heartbeat" size={20} />
           <span className="font-semibold">CSE 14th Intake</span>
         </div>
 
